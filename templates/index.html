@@ -4,210 +4,223 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>LOTS - Lee Online Technology Solutions</title>
-    <!-- Bootstrap 5 CSS -->
+    
+    <!-- Bootstrap 5 CSS & Icons CDN -->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
-    <!-- FontAwesome Icons -->
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.0/font/bootstrap-icons.css">
+    
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    
     <style>
+        :root {
+            --bg-dark: #070913;
+            --card-bg: rgba(18, 24, 43, 0.75);
+            --primary-blue: #0284c7;
+            --accent-cyan: #38bdf8;
+            --border-color: rgba(255, 255, 255, 0.08);
+        }
+
         body {
-            background-color: #0b0f19;
-            color: #e2e8f0;
-            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            font-family: 'Plus Jakarta Sans', sans-serif;
+            background-color: var(--bg-dark);
+            color: #f1f5f9;
+            overflow-x: hidden;
         }
-        .navbar {
-            background-color: #0f172a !important;
-            border-bottom: 1px solid #1e293b;
+
+        /* Glassmorphism Navigation */
+        .navbar-custom {
+            background: rgba(7, 9, 19, 0.85);
+            backdrop-filter: blur(15px);
+            border-bottom: 1px solid var(--border-color);
         }
-        .navbar-brand img {
-            height: 45px;
-            border-radius: 4px;
+
+        /* Glowing Gradient Text */
+        .text-gradient {
+            background: linear-gradient(135deg, #38bdf8 0%, #818cf8 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
         }
-        .hero-section {
-            padding: 100px 0 60px;
-            background: linear-gradient(135deg, #0f172a 0%, #1e1b4b 100%);
+
+        /* Hero Section Styling */
+        .hero {
+            padding: 130px 0 90px;
+            background: radial-gradient(circle at top center, rgba(2, 132, 199, 0.15) 0%, rgba(7, 9, 19, 1) 70%);
         }
-        .card {
-            background-color: #1e293b;
-            border: 1px solid #334155;
-            color: #f8fafc;
-            transition: transform 0.3s ease, box-shadow 0.3s ease;
+
+        /* Interactive High-Tech Glass Cards */
+        .card-glass {
+            background: var(--card-bg);
+            backdrop-filter: blur(12px);
+            border: 1px solid var(--border-color);
+            border-radius: 16px;
+            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
         }
-        .card:hover {
-            transform: translateY(-5px);
-            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.5);
+
+        .card-glass:hover {
+            transform: translateY(-7px);
+            border-color: var(--accent-cyan);
+            box-shadow: 0 15px 35px rgba(2, 132, 199, 0.2);
         }
-        .badge-tech {
-            background-color: #0f172a;
-            color: #38bdf8;
-            border: 1px solid #0284c7;
+
+        .icon-box {
+            font-size: 2.5rem;
+            color: var(--accent-cyan);
         }
-        .footer {
-            background-color: #0f172a;
-            border-top: 1px solid #1e293b;
-        }
-        
-        /* Dark Theme Form Inputs & Dropdown Styling */
-        .form-control, .form-select {
-            background-color: #111827 !important;
-            border: 1px solid #374151 !important;
-            color: #f3f4f6 !important;
-            border-radius: 8px;
-            padding: 12px;
-        }
-        .form-control:focus, .form-select:focus {
-            background-color: #111827 !important;
-            border-color: #3b82f6 !important;
-            color: #ffffff !important;
-            box-shadow: 0 0 0 2px rgba(59, 130, 246, 0.3);
-        }
-        .form-control::placeholder {
-            color: #9ca3af;
-        }
-        .form-select option {
-            background-color: #111827;
-            color: #f3f4f6;
-        }
-        .btn-submit {
-            background: linear-gradient(90deg, #0082c8 0%, #0072ff 100%);
+
+        /* Buttons */
+        .btn-neon {
+            background: linear-gradient(135deg, #0284c7 0%, #2563eb 100%);
+            color: #fff;
             border: none;
-            color: #fff;
-            font-weight: 600;
-            padding: 12px;
-            border-radius: 8px;
-            box-shadow: 0 4px 15px rgba(0, 114, 255, 0.4);
-            transition: all 0.3s ease;
+            box-shadow: 0 4px 20px rgba(2, 132, 199, 0.4);
         }
-        .btn-submit:hover {
-            background: linear-gradient(90deg, #0072ff 0%, #0082c8 100%);
-            box-shadow: 0 6px 20px rgba(0, 114, 255, 0.6);
+
+        .btn-neon:hover {
             color: #fff;
+            box-shadow: 0 6px 25px rgba(2, 132, 199, 0.6);
+            transform: translateY(-2px);
         }
-        .skill-badge {
-            background-color: #000000;
-            color: #ffffff;
-            border: 1px solid #334155;
-            font-weight: 600;
-            padding: 6px 12px;
-            border-radius: 6px;
-            display: inline-block;
-            margin: 3px;
+
+        .extra-small {
+            font-size: 0.75rem;
+        }
+
+        footer {
+            background-color: #03050a;
+            border-top: 1px solid var(--border-color);
         }
     </style>
 </head>
 <body>
 
-    <!-- Navigation Bar -->
-    <nav class="navbar navbar-expand-lg navbar-dark fixed-top">
+    <!-- Glassmorphism Navbar -->
+    <nav class="navbar navbar-expand-lg fixed-top navbar-dark navbar-custom py-2">
         <div class="container">
-            <a class="navbar-brand" href="#">
-                <img src="{{ url_for('static', filename='images/logo.png') }}" alt="LOTS Logo">
+            <a class="navbar-brand fw-bold text-white d-flex align-items-center" href="#">
+                <i class="bi bi-cpu-fill text-info me-2 fs-3"></i>
+                <span class="text-gradient fs-4">LOTS</span>
             </a>
-            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
                 <span class="navbar-toggler-icon"></span>
             </button>
             <div class="collapse navbar-collapse" id="navbarNav">
-                <ul class="navbar-nav ms-auto fs-6 fw-semibold">
-                    <li class="nav-item"><a class="nav-link" href="#services">Services</a></li>
-                    <li class="nav-item"><a class="nav-link" href="#leadership">Leadership</a></li>
-                    <li class="nav-item"><a class="nav-link" href="#testimonials">Testimonials</a></li>
-                    <li class="nav-item"><a class="nav-link" href="#feedback">Feedback</a></li>
-                    <li class="nav-item"><a class="nav-link" href="#contact">Contact</a></li>
+                <ul class="navbar-nav ms-auto fw-semibold fs-6">
+                    <li class="nav-item"><a class="nav-link text-light px-3" href="#services">Services</a></li>
+                    <li class="nav-item"><a class="nav-link text-light px-3" href="#founder">Leadership</a></li>
+                    <li class="nav-item"><a class="nav-link text-light px-3" href="#testimonials">Testimonials</a></li>
+                    <li class="nav-item"><a class="nav-link text-light px-3" href="#feedback">Feedback</a></li>
+                    <li class="nav-item"><a class="nav-link text-light px-3" href="#contact">Contact</a></li>
                 </ul>
             </div>
         </div>
     </nav>
 
     <!-- Hero Section -->
-    <section class="hero-section text-center text-white">
+    <section class="hero text-center">
         <div class="container">
-            <h1 class="display-3 fw-bold text-info mb-3">Lee Online Technology Solutions</h1>
-            <p class="lead text-light mb-4">Empowering Businesses with Cutting-Edge Software, AI Solutions & Fintech Tools</p>
-            <a href="#services" class="btn btn-primary btn-lg me-2">Explore Services</a>
-            <a href="#feedback" class="btn btn-outline-info btn-lg">Give Feedback</a>
-        </div>
-    </section>
-
-    <!-- Core Services Section -->
-    <section id="services" class="py-5">
-        <div class="container">
-            <h2 class="text-center text-info fw-bold mb-2 display-5">Our Core Services</h2>
-            <p class="text-center text-secondary mb-5">Robust technical solutions engineered for efficiency and scale.</p>
-            
-            <div class="row g-4">
-                <div class="col-md-6 col-lg-3">
-                    <div class="card h-100 p-3">
-                        <div class="card-body text-center">
-                            <i class="fa-solid fa-code fa-3x text-info mb-3"></i>
-                            <h4 class="card-title fw-bold">Software & Web Engineering</h4>
-                            <p class="card-text text-secondary small">Custom enterprise software, high-performance web applications, and scalable API systems.</p>
-                            <span class="badge badge-tech p-2">Python / Flask / Microservices</span>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="col-md-6 col-lg-3">
-                    <div class="card h-100 p-3">
-                        <div class="card-body text-center">
-                            <i class="fa-solid fa-microchip fa-3x text-info mb-3"></i>
-                            <h4 class="card-title fw-bold">AI & Algorithmic Solutions</h4>
-                            <p class="card-text text-secondary small">Cutting-edge AI integrations, smart process automation, and algorithmic trading systems.</p>
-                            <span class="badge badge-tech p-2">Neural Networks / Algo-Trading</span>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="col-md-6 col-lg-3">
-                    <div class="card h-100 p-3">
-                        <div class="card-body text-center">
-                            <i class="fa-solid fa-box-open fa-3x text-info mb-3"></i>
-                            <h4 class="card-title fw-bold">Digital Products & Assets</h4>
-                            <p class="card-text text-secondary small">Ready-to-deploy digital templates, developer frameworks, and proprietary fintech tools.</p>
-                            <span class="badge badge-tech p-2">SaaS Assets / Digital Delivery</span>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="col-md-6 col-lg-3">
-                    <div class="card h-100 p-3">
-                        <div class="card-body text-center">
-                            <i class="fa-solid fa-user-graduate fa-3x text-info mb-3"></i>
-                            <h4 class="card-title fw-bold">Technical Education & Mentorship</h4>
-                            <p class="card-text text-secondary small">Advanced tech training, algorithmic strategy workshops, and developer skill programs.</p>
-                            <span class="badge badge-tech p-2">Interactive Training / Mentorship</span>
-                        </div>
-                    </div>
-                </div>
+            <span class="badge bg-primary-subtle text-info border border-info mb-3 px-3 py-2 rounded-pill fs-6 fw-normal">Architecting Next-Gen Technology Solutions</span>
+            <h1 class="display-3 fw-bold text-white mb-3">Lee Online Technology Solutions</h1>
+            <p class="lead text-secondary mx-auto mb-4" style="max-width: 800px;">
+                Empowering businesses through Software Development, Artificial Intelligence Systems, Algorithmic Automation, and High-Impact Digital Education.
+            </p>
+            <div class="d-flex justify-content-center gap-3">
+                <a href="#services" class="btn btn-neon btn-lg fw-bold px-4 py-2">Explore Services</a>
+                <a href="#contact" class="btn btn-outline-light btn-lg px-4 py-2">Get in Touch</a>
             </div>
         </div>
     </section>
 
-    <!-- Leadership Section -->
-    <section id="leadership" class="py-5">
-        <div class="container">
-            <h2 class="text-center text-info fw-bold mb-5 display-5">Leadership</h2>
-            <div class="row justify-content-center">
-                <div class="col-lg-10">
-                    <div class="card p-4">
-                        <div class="row align-items-center">
-                            <div class="col-md-3 text-center mb-3 mb-md-0">
-                                <div class="d-inline-flex align-items-center justify-content-center bg-dark rounded-circle" style="width: 120px; height: 120px; border: 2px solid #00d2ff;">
-                                    <i class="fa-solid fa-microchip fa-4x text-info"></i>
-                                </div>
-                            </div>
-                            <div class="col-md-9">
-                                <span class="badge bg-info text-dark fw-bold mb-2">Technical Leadership</span>
-                                <h2 class="text-info fw-bold mb-1">KRISH LIJESH</h2>
-                                <h5 class="text-light mb-3 opacity-75">Founder & Lead Algorithmic Trading Architect | AI Specialist</h5>
-                                <p class="text-secondary mb-3">Trading Expert & AI Specialist leveraging artificial intelligence and automated algorithms to build high-performance software architectures, modern digital products, and technology education solutions.</p>
-                                
-                                <div class="d-flex flex-wrap gap-1">
-                                    <span class="skill-badge">Algorithmic Trading Architecture</span>
-                                    <span class="skill-badge">AI Systems Design</span>
-                                    <span class="skill-badge">Full-Stack Python Solutions</span>
-                                    <span class="skill-badge">Digital Product Engineering</span>
-                                </div>
-                            </div>
+    <!-- Services Section -->
+    <section id="services" class="py-5">
+        <div class="container py-4">
+            <div class="text-center mb-5">
+                <h2 class="fw-bold text-gradient display-5">Our Core Services</h2>
+                <p class="text-secondary">Robust technical solutions engineered for efficiency and scale.</p>
+            </div>
+            <div class="row g-4">
+                
+                <div class="col-md-6 col-lg-3">
+                    <div class="card card-glass h-100 p-4 text-center d-flex flex-column justify-content-between">
+                        <div>
+                            <div class="mb-3"><i class="bi bi-code-slash icon-box"></i></div>
+                            <h5 class="fw-bold text-white mb-3">Software &amp; Web Engineering</h5>
+                            <p class="text-secondary small mb-4">Custom enterprise software, high-performance web applications, and scalable API systems.</p>
                         </div>
+                        <div class="border-top border-secondary pt-3 mt-auto">
+                            <span class="badge bg-dark text-info border border-secondary extra-small">Python / Flask / Microservices</span>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="col-md-6 col-lg-3">
+                    <div class="card card-glass h-100 p-4 text-center d-flex flex-column justify-content-between">
+                        <div>
+                            <div class="mb-3"><i class="bi bi-cpu-fill icon-box"></i></div>
+                            <h5 class="fw-bold text-white mb-3">AI &amp; Algorithmic Solutions</h5>
+                            <p class="text-secondary small mb-4">Cutting-edge AI integrations, smart process automation, and algorithmic trading systems.</p>
+                        </div>
+                        <div class="border-top border-secondary pt-3 mt-auto">
+                            <span class="badge bg-dark text-info border border-secondary extra-small">Neural Networks / Algo-Trading / Automation</span>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="col-md-6 col-lg-3">
+                    <div class="card card-glass h-100 p-4 text-center d-flex flex-column justify-content-between">
+                        <div>
+                            <div class="mb-3"><i class="bi bi-box-seam-fill icon-box"></i></div>
+                            <h5 class="fw-bold text-white mb-3">Digital Products &amp; Assets</h5>
+                            <p class="text-secondary small mb-4">Ready-to-deploy digital templates, developer frameworks, and proprietary fintech tools.</p>
+                        </div>
+                        <div class="border-top border-secondary pt-3 mt-auto">
+                            <span class="badge bg-dark text-info border border-secondary extra-small">SaaS Assets / Digital Delivery</span>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="col-md-6 col-lg-3">
+                    <div class="card card-glass h-100 p-4 text-center d-flex flex-column justify-content-between">
+                        <div>
+                            <div class="mb-3"><i class="bi bi-journal-code icon-box"></i></div>
+                            <h5 class="fw-bold text-white mb-3">Technical Education &amp; Mentorship</h5>
+                            <p class="text-secondary small mb-4">Advanced tech training, algorithmic strategy workshops, and developer skill programs.</p>
+                        </div>
+                        <div class="border-top border-secondary pt-3 mt-auto">
+                            <span class="badge bg-dark text-info border border-secondary extra-small">Interactive Training / Mentorship</span>
+                        </div>
+                    </div>
+                </div>
+                
+            </div>
+        </div>
+    </section>
+
+    <!-- Founder Section -->
+    <section id="founder" class="py-5 bg-dark-subtle border-top border-bottom border-secondary">
+        <div class="container py-4">
+            <div class="row align-items-center">
+                <div class="col-lg-3 text-center mb-4 mb-lg-0">
+                    <div class="p-4 card-glass d-inline-block rounded-circle border-info">
+                        <i class="bi bi-cpu-fill text-info" style="font-size: 4.5rem;"></i>
+                    </div>
+                </div>
+                <div class="col-lg-9">
+                    <span class="badge bg-info text-dark mb-2 fw-bold px-3 py-2">Technical Leadership</span>
+                    <h2 class="fw-bold text-gradient mb-1">KRISH LIJESH</h2>
+                    <h5 class="text-light mb-3">Founder &amp; Lead Algorithmic Trading Architect | AI Specialist</h5>
+                    
+                    <p class="text-secondary leading-relaxed">
+                        Trading Expert &amp; AI Specialist leveraging artificial intelligence and automated algorithms to build high-performance software architectures, modern digital products, and technology education solutions.
+                    </p>
+                    
+                    <div class="d-flex flex-wrap gap-2 mt-3">
+                        <span class="badge bg-dark text-light border border-secondary">Algorithmic Trading Architecture</span>
+                        <span class="badge bg-dark text-light border border-secondary">AI Systems Design</span>
+                        <span class="badge bg-dark text-light border border-secondary">Full-Stack Python Solutions</span>
+                        <span class="badge bg-dark text-light border border-secondary">Digital Product Engineering</span>
                     </div>
                 </div>
             </div>
@@ -216,123 +229,125 @@
 
     <!-- Testimonials Section -->
     <section id="testimonials" class="py-5">
-        <div class="container">
-            <h2 class="text-center text-info fw-bold mb-5 display-5">Client Testimonials</h2>
-            <div class="row g-4">
-                <div class="col-md-6">
-                    <div class="card p-3">
-                        <div class="card-body">
-                            <p class="card-text text-light">"LOTS provided incredible fintech software solutions that streamlined our automated systems effortlessly."</p>
-                            <footer class="blockquote-footer text-info mt-2">Fintech Partner</footer>
+        <div class="container py-4">
+            <div class="text-center mb-5">
+                <h2 class="fw-bold text-gradient display-6">Client Testimonials</h2>
+                <p class="text-secondary">Verified feedback across our Algorithmic Systems &amp; Web Software deliveries.</p>
+            </div>
+            <div class="row g-4 justify-content-center">
+                
+                <div class="col-md-6 col-lg-5">
+                    <div class="card card-glass p-4 h-100 d-flex flex-column justify-content-between">
+                        <div>
+                            <div class="d-flex justify-content-between align-items-center mb-3">
+                                <div class="text-warning">
+                                    <i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i>
+                                </div>
+                                <span class="badge bg-dark text-info border border-info extra-small">
+                                    <i class="bi bi-graph-up-arrow me-1"></i> Algorithmic Trading Architecture
+                                </span>
+                            </div>
+                            <p class="fst-italic text-light mb-4">"The custom trading algorithm developed for our strategy is exceptionally fast and precise. Highly satisfied with the AI integration and risk management features!"</p>
+                        </div>
+                        <div class="border-top border-secondary pt-3 mt-auto d-flex align-items-center justify-content-between">
+                            <div>
+                                <h6 class="fw-bold text-white mb-0">Satisfied Client 1</h6>
+                                <small class="text-secondary">Trading Firm / Investor</small>
+                            </div>
                         </div>
                     </div>
                 </div>
-                <div class="col-md-6">
-                    <div class="card p-3">
-                        <div class="card-body">
-                            <p class="card-text text-light">"Highly professional mentorship and top-notch modern Web applications."</p>
-                            <footer class="blockquote-footer text-info mt-2">Enterprise Client</footer>
+                
+                <div class="col-md-6 col-lg-5">
+                    <div class="card card-glass p-4 h-100 d-flex flex-column justify-content-between">
+                        <div>
+                            <div class="d-flex justify-content-between align-items-center mb-3">
+                                <div class="text-warning">
+                                    <i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i>
+                                </div>
+                                <span class="badge bg-dark text-info border border-info extra-small">
+                                    <i class="bi bi-globe me-1"></i> Web Software Development
+                                </span>
+                            </div>
+                            <p class="fst-italic text-light mb-4">"Our corporate web portal was built with outstanding performance and clean architecture. Prompt communication and high technical standards throughout the project."</p>
+                        </div>
+                        <div class="border-top border-secondary pt-3 mt-auto d-flex align-items-center justify-content-between">
+                            <div>
+                                <h6 class="fw-bold text-white mb-0">Satisfied Client 2</h6>
+                                <small class="text-secondary">E-Commerce Business Partner</small>
+                            </div>
                         </div>
                     </div>
                 </div>
+                
             </div>
         </div>
     </section>
 
-    <!-- Feedback Section -->
-    <section id="feedback" class="py-5">
-        <div class="container">
+    <!-- Feedback Form Section -->
+    <section id="feedback" class="py-5 bg-dark-subtle border-top border-bottom border-secondary">
+        <div class="container py-4">
+            <div class="text-center mb-5">
+                <h2 class="fw-bold text-gradient display-6">Submit Your Feedback</h2>
+                <p class="text-secondary">Have you used our Algorithmic Trading or Software Services? Share your experience with us.</p>
+            </div>
             <div class="row justify-content-center">
-                <div class="col-md-8">
-                    <div class="card p-4 style-card">
-                        <form id="feedbackForm" action="https://formspree.io/f/xjyvavkn" method="POST">
-                            <div class="row">
-                                <div class="col-md-6 mb-3">
+                <div class="col-lg-8">
+                    <div class="card card-glass p-4 p-md-5">
+                        <form action="https://formspree.io/f/xjyvavkn" method="POST">
+                            <div class="row g-3">
+                                <div class="col-md-6">
                                     <label class="form-label text-light">Your Name</label>
-                                    <input type="text" name="name" class="form-control" required>
+                                    <input type="text" name="name" class="form-control bg-dark text-white border-secondary" placeholder="Enter your name" required>
                                 </div>
-                                <div class="col-md-6 mb-3">
+                                <div class="col-md-6">
                                     <label class="form-label text-light">Email Address</label>
-                                    <input type="email" name="email" class="form-control" required>
+                                    <input type="email" name="email" class="form-control bg-dark text-white border-secondary" placeholder="name@example.com" required>
+                                </div>
+                                <div class="col-md-12">
+                                    <label class="form-label text-light">Service Availed</label>
+                                    <select name="service" class="form-select bg-dark text-white border-secondary" required>
+                                        <option value="" selected disabled>Choose a Service</option>
+                                        <option value="Algorithmic Trading Systems">Algorithmic Trading Systems</option>
+                                        <option value="Web &amp; Software Development">Web &amp; Software Development</option>
+                                        <option value="AI &amp; Automation Solutions">AI &amp; Automation Solutions</option>
+                                        <option value="Educational Services">Educational Services</option>
+                                    </select>
+                                </div>
+                                <div class="col-md-12">
+                                    <label class="form-label text-light">Your Feedback / Review</label>
+                                    <textarea name="message" class="form-control bg-dark text-white border-secondary" rows="4" placeholder="Write your review here..." required></textarea>
+                                </div>
+                                <div class="col-12 text-center mt-4">
+                                    <button type="submit" class="btn btn-neon btn-lg px-5">Submit Feedback</button>
                                 </div>
                             </div>
-
-                            <div class="mb-3">
-                                <label class="form-label text-light">Service Availed</label>
-                                <select name="service" class="form-select" required>
-                                    <option value="" disabled selected>Choose a Service</option>
-                                    <option value="Software & Web Engineering">Software & Web Engineering</option>
-                                    <option value="AI & Algorithmic Solutions">AI & Algorithmic Solutions</option>
-                                    <option value="Digital Products & Assets">Digital Products & Assets</option>
-                                    <option value="Technical Education & Mentorship">Technical Education & Mentorship</option>
-                                    <option value="Other / General Inquiry">Other / General Inquiry</option>
-                                </select>
-                            </div>
-
-                            <div class="mb-3">
-                                <label class="form-label text-light">Your Feedback / Review</label>
-                                <textarea name="message" class="form-control" rows="4" required></textarea>
-                            </div>
-
-                            <button type="submit" id="submitBtn" class="btn btn-submit w-100 mt-2">Submit Feedback</button>
                         </form>
-
-                        <!-- Hidden Success Alert -->
-                        <div id="formStatus" class="alert alert-success mt-3 text-center fw-bold" style="display: none;" role="alert">
-                            ✓ Your Feedback Submitted Successfully!
-                        </div>
                     </div>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- Footer / Contact -->
-    <footer id="contact" class="footer py-4 text-center text-secondary">
-        <div class="container">
-            <p class="mb-1">&copy; 2026 Lee Online Technology Solutions (LOTS). All rights reserved.</p>
-            <p class="small">Powered by Flask & Render | Domain: leelots.com</p>
+    <!-- Footer & Legal Section -->
+    <footer id="contact" class="py-5">
+        <div class="container text-center">
+            <h5 class="text-white fw-bold mb-2">LOTS - Lee Online Technology Solutions</h5>
+            <p class="small text-secondary mb-1">Sole Proprietorship | Udyam Registered Entity</p>
+            <p class="small text-secondary mb-3">Shoranur, Palakkad, Kerala, India - 679121 | Email: support@leelots.com</p>
+            
+            <div class="mb-4">
+                <a href="#" class="text-secondary text-decoration-none mx-2 small">Privacy Policy</a> |
+                <a href="#" class="text-secondary text-decoration-none mx-2 small">Terms &amp; Conditions</a> |
+                <a href="#" class="text-secondary text-decoration-none mx-2 small">Refund Policy</a> |
+                <a href="#" class="text-secondary text-decoration-none mx-2 small">Contact Us</a>
+            </div>
+            
+            <p class="text-secondary extra-small mb-0">© 2026 LOTS - Lee Online Technology Solutions. All Rights Reserved.</p>
         </div>
     </footer>
 
-    <!-- Bootstrap 5 JS -->
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/bootstrap.bundle.min.js"></script>
-
-    <!-- AJAX Script for Page-Stay Feedback Submission -->
-    <script>
-        const form = document.getElementById("feedbackForm");
-        const status = document.getElementById("formStatus");
-        const submitBtn = document.getElementById("submitBtn");
-
-        form.addEventListener("submit", async function(event) {
-            event.preventDefault();
-            submitBtn.disabled = true;
-            submitBtn.innerText = "Sending...";
-            
-            const data = new FormData(event.target);
-            try {
-                const response = await fetch(event.target.action, {
-                    method: form.method,
-                    body: data,
-                    headers: { 'Accept': 'application/json' }
-                });
-
-                if (response.ok) {
-                    status.style.display = "block";
-                    form.reset();
-                    submitBtn.disabled = false;
-                    submitBtn.innerText = "Submit Feedback";
-                } else {
-                    alert("Oops! There was a problem submitting your feedback.");
-                    submitBtn.disabled = false;
-                    submitBtn.innerText = "Submit Feedback";
-                }
-            } catch (error) {
-                alert("Oops! Network error. Please try again later.");
-                submitBtn.disabled = false;
-                submitBtn.innerText = "Submit Feedback";
-            }
-        });
-    </script>
+    <!-- Bootstrap 5 JS Bundle CDN -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
 </body>
 </html>
