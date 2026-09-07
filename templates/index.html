@@ -137,7 +137,7 @@
                     <li class="nav-item"><a class="nav-link text-light px-3" href="#founder">Leadership</a></li>
                     <li class="nav-item"><a class="nav-link text-light px-3" href="#testimonials">Testimonials</a></li>
                     <li class="nav-item"><a class="nav-link text-light px-3" href="#feedback">Feedback</a></li>
-                    <li class="nav-item"><a class="nav-link text-light px-3" href="#contact">Contact</a></li>
+                    <li class="nav-item"><a class="nav-link text-light px-3" href="#" data-bs-toggle="modal" data-bs-target="#contactModal">Contact</a></li>
                 </ul>
             </div>
         </div>
@@ -153,7 +153,7 @@
             </p>
             <div class="d-flex justify-content-center gap-3">
                 <a href="#services" class="btn btn-neon btn-lg fw-bold px-4 py-2">Explore Services</a>
-                <a href="#contact" class="btn btn-outline-light btn-lg px-4 py-2">Get in Touch</a>
+                <a href="#" class="btn btn-outline-light btn-lg px-4 py-2" data-bs-toggle="modal" data-bs-target="#contactModal">Get in Touch</a>
             </div>
         </div>
     </section>
@@ -371,13 +371,17 @@
             <img src="static/logo.png" alt="LOTS Logo" class="navbar-logo mb-3">
             <h5 class="text-white fw-bold mb-2">LOTS - Lee Online Technology Solutions</h5>
             <p class="small text-secondary mb-1">Sole Proprietorship | Udyam Registered Entity</p>
-            <p class="small text-secondary mb-3">Shoranur, Palakkad, Kerala, India - 679121 | Email: support@leelots.com</p>
+            <p class="small text-secondary mb-1">Shoranur, Palakkad, Kerala, India - 679121</p>
+            <p class="small text-secondary mb-3">
+                <i class="bi bi-envelope-fill me-1 text-info"></i> Email: <a href="mailto:support@leelots.com" class="text-secondary text-decoration-none">support@leelots.com</a> | 
+                <i class="bi bi-telephone-fill ms-2 me-1 text-info"></i> Call/WhatsApp: <a href="https://wa.me/917902219941" target="_blank" class="text-secondary text-decoration-none">7902219941</a>
+            </p>
             
             <div class="mb-4">
                 <a href="#" class="text-secondary text-decoration-none mx-2 small" data-bs-toggle="modal" data-bs-target="#privacyModal">Privacy Policy</a> |
                 <a href="#" class="text-secondary text-decoration-none mx-2 small" data-bs-toggle="modal" data-bs-target="#termsModal">Terms &amp; Conditions</a> |
                 <a href="#" class="text-secondary text-decoration-none mx-2 small" data-bs-toggle="modal" data-bs-target="#refundModal">Refund Policy</a> |
-                <a href="#contact" class="text-secondary text-decoration-none mx-2 small">Contact Us</a>
+                <a href="#" class="text-secondary text-decoration-none mx-2 small" data-bs-toggle="modal" data-bs-target="#contactModal">Contact Us</a>
             </div>
             
             <p class="text-secondary extra-small mb-0">© 2026 LOTS - Lee Online Technology Solutions. All Rights Reserved.</p>
@@ -444,6 +448,61 @@
                     <p>Due to the custom digital nature of custom code architectures, algorithmic deployments, and web software developments, payments made for completed technical services are non-refundable once source code access or delivery is executed.</p>
                     <h6 class="text-white fw-bold mt-3">Cancellations</h6>
                     <p>For ongoing development projects, cancellation requests must be submitted prior to the initiation of source code milestones. Approved refunds will be processed via original payment methods within 5-7 business days.</p>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary btn-sm" data-bs-dismiss="modal">Close</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Contact Us Modal -->
+    <div class="modal fade" id="contactModal" tabindex="-1" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered modal-lg">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title fw-bold text-gradient">Contact Us</h5>
+                    <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body text-light p-4">
+                    <div class="text-center mb-4">
+                        <img src="static/logo.png" alt="LOTS Logo" class="navbar-logo mb-2">
+                        <h4 class="fw-bold text-white mb-1">LOTS - Lee Online Technology Solutions</h4>
+                        <span class="badge bg-dark text-info border border-info">Sole Proprietorship | Udyam Registered Entity</span>
+                    </div>
+                    
+                    <div class="row g-3">
+                        <div class="col-md-6">
+                            <div class="p-3 card-glass h-100 d-flex align-items-center">
+                                <i class="bi bi-geo-alt-fill fs-2 text-info me-3"></i>
+                                <div>
+                                    <h6 class="fw-bold mb-1 text-white">Address</h6>
+                                    <p class="small text-secondary mb-0">Shoranur, Palakkad, Kerala, India - 679121</p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-6">
+                            <div class="p-3 card-glass h-100 d-flex align-items-center">
+                                <i class="bi bi-envelope-fill fs-2 text-info me-3"></i>
+                                <div>
+                                    <h6 class="fw-bold mb-1 text-white">Email Address</h6>
+                                    <p class="small text-secondary mb-0"><a href="mailto:support@leelots.com" class="text-info text-decoration-none">support@leelots.com</a></p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-12">
+                            <div class="p-3 card-glass d-flex align-items-center justify-content-between flex-wrap gap-2">
+                                <div class="d-flex align-items-center">
+                                    <i class="bi bi-whatsapp fs-2 text-success me-3"></i>
+                                    <div>
+                                        <h6 class="fw-bold mb-1 text-white">Call / WhatsApp Support</h6>
+                                        <p class="small text-secondary mb-0">+91 7902219941</p>
+                                    </div>
+                                </div>
+                                <a href="https://wa.me/917902219941" target="_blank" class="btn btn-outline-success btn-sm"><i class="bi bi-chat-dots me-1"></i> Chat on WhatsApp</a>
+                            </div>
+                        </div>
+                    </div>
                 </div>
                 <div class="modal-footer">
                     <button type="button" class="btn btn-secondary btn-sm" data-bs-dismiss="modal">Close</button>
