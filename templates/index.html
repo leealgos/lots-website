@@ -1,0 +1,281 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>LOTS - Lee Online Technology Solutions</title>
+    <!-- Bootstrap 5 CSS & Icons -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.1/font/bootstrap-icons.css">
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;600;800&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --bg-dark: #070913;
+            --card-bg: rgba(18, 24, 43, 0.75);
+            --primary-blue: #0284c7;
+            --accent-cyan: #38bdf8;
+            --border-color: rgba(255, 255, 255, 0.08);
+        }
+
+        body {
+            font-family: 'Plus Jakarta Sans', sans-serif;
+            background-color: var(--bg-dark);
+            color: #f1f5f9;
+            overflow-x: hidden;
+        }
+
+        /* Glassmorphism Navigation */
+        .navbar-custom {
+            background: rgba(7, 9, 19, 0.85);
+            backdrop-filter: blur(15px);
+            border-bottom: 1px solid var(--border-color);
+        }
+
+        /* Glowing Gradient Text */
+        .text-gradient {
+            background: linear-gradient(135deg, #38bdf8 0%, #818cf8 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        /* Hero Section Styling */
+        .hero {
+            padding: 130px 0 90px;
+            background: radial-gradient(circle at top center, rgba(2, 132, 199, 0.15) 0%, rgba(7, 9, 19, 1) 70%);
+        }
+
+        /* Interactive High-Tech Glass Cards */
+        .card-glass {
+            background: var(--card-bg);
+            backdrop-filter: blur(12px);
+            border: 1px solid var(--border-color);
+            border-radius: 16px;
+            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+
+        .card-glass:hover {
+            transform: translateY(-7px);
+            border-color: var(--accent-cyan);
+            box-shadow: 0 15px 35px rgba(2, 132, 199, 0.2);
+        }
+
+        .icon-box {
+            font-size: 2.5rem;
+            color: var(--accent-cyan);
+        }
+
+        /* Buttons */
+        .btn-neon {
+            background: linear-gradient(135deg, #0284c7 0%, #2563eb 100%);
+            color: #fff;
+            border: none;
+            box-shadow: 0 4px 20px rgba(2, 132, 199, 0.4);
+        }
+
+        .btn-neon:hover {
+            color: #fff;
+            box-shadow: 0 6px 25px rgba(2, 132, 199, 0.6);
+            transform: translateY(-2px);
+        }
+
+        footer {
+            background-color: #03050a;
+            border-top: 1px solid var(--border-color);
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Glassmorphism Navbar -->
+    <nav class="navbar navbar-expand-lg fixed-top navbar-dark navbar-custom py-2">
+        <div class="container">
+            <a class="navbar-brand" href="#">
+                <img src="{{ url_for('static', filename='logo.png') }}" alt="LOTS Logo" height="48" class="d-inline-block align-text-top">
+            </a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ms-auto fw-semibold fs-6">
+                    <li class="nav-item"><a class="nav-link text-light px-3" href="#services">Services</a></li>
+                    <li class="nav-item"><a class="nav-link text-light px-3" href="#founder">Leadership</a></li>
+                    <li class="nav-item"><a class="nav-link text-light px-3" href="#testimonials">Testimonials</a></li>
+                    <li class="nav-item"><a class="nav-link text-light px-3" href="#feedback">Feedback</a></li>
+                    <li class="nav-item"><a class="nav-link text-light px-3" href="#contact">Contact</a></li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="hero text-center">
+        <div class="container">
+            <span class="badge bg-primary-subtle text-info border border-info mb-3 px-3 py-2 rounded-pill fs-6 fw-normal">Architecting Next-Gen Technology Solutions</span>
+            <h1 class="display-3 fw-extrabold text-white mb-3">Lee Online Technology Solutions</h1>
+            <p class="lead text-secondary mx-auto mb-4" style="max-width: 800px;">
+                Empowering businesses through Software Development, Artificial Intelligence Systems, Algorithmic Automation, and High-Impact Digital Education.
+            </p>
+            <div class="d-flex justify-content-center gap-3">
+                <a href="#services" class="btn btn-neon btn-lg fw-bold px-4 py-2">Explore Services</a>
+                <a href="#contact" class="btn btn-outline-light btn-lg px-4 py-2">Get in Touch</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Services Section -->
+    <section id="services" class="py-5">
+        <div class="container py-4">
+            <div class="text-center mb-5">
+                <h2 class="fw-bold text-gradient display-5">Our Core Services</h2>
+                <p class="text-secondary">Robust technical solutions engineered for efficiency and scale.</p>
+            </div>
+            <div class="row g-4">
+                {% for service in services %}
+                <div class="col-md-6 col-lg-3">
+                    <div class="card card-glass h-100 p-4 text-center d-flex flex-column justify-content-between">
+                        <div>
+                            <div class="mb-3"><i class="bi {{ service.icon }} icon-box"></i></div>
+                            <h5 class="fw-bold text-white mb-3">{{ service.title }}</h5>
+                            <p class="text-secondary small mb-4">{{ service.desc }}</p>
+                        </div>
+                        <div class="border-top border-secondary pt-3 mt-auto">
+                            <span class="badge bg-dark text-info border border-secondary extra-small">{{ service.tech }}</span>
+                        </div>
+                    </div>
+                </div>
+                {% endfor %}
+            </div>
+        </div>
+    </section>
+
+    <!-- Founder Section -->
+    <section id="founder" class="py-5 bg-dark-subtle border-top border-bottom border-secondary">
+        <div class="container py-4">
+            <div class="row align-items-center">
+                <div class="col-lg-3 text-center mb-4 mb-lg-0">
+                    <div class="p-4 card-glass d-inline-block rounded-circle border-info">
+                        <i class="bi bi-cpu-fill text-info" style="font-size: 4.5rem;"></i>
+                    </div>
+                </div>
+                <div class="col-lg-9">
+                    <span class="badge bg-info text-dark mb-2 fw-bold px-3 py-2">Technical Leadership</span>
+                    <h2 class="fw-bold text-gradient mb-1">KRISH LIJESH</h2>
+                    <h5 class="text-light mb-3">Founder & Lead Algorithmic Trading Architect | AI Specialist</h5>
+                    
+                    <p class="text-secondary leading-relaxed">
+                        Trading Expert & AI Specialist leveraging artificial intelligence and automated algorithms to build high-performance software architectures, modern digital products, and technology education solutions.
+                    </p>
+                    
+                    <div class="d-flex flex-wrap gap-2 mt-3">
+                        <span class="badge bg-dark text-light border border-secondary">Algorithmic Trading Architecture</span>
+                        <span class="badge bg-dark text-light border border-secondary">AI Systems Design</span>
+                        <span class="badge bg-dark text-light border border-secondary">Full-Stack Python Solutions</span>
+                        <span class="badge bg-dark text-light border border-secondary">Digital Product Engineering</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Testimonials Section with Service Category Tags -->
+    <section id="testimonials" class="py-5">
+        <div class="container py-4">
+            <div class="text-center mb-5">
+                <h2 class="fw-bold text-gradient display-6">Client Testimonials</h2>
+                <p class="text-secondary">Verified feedback across our Algorithmic Systems & Web Software deliveries.</p>
+            </div>
+            <div class="row g-4 justify-content-center">
+                {% for t in testimonials %}
+                <div class="col-md-6 col-lg-5">
+                    <div class="card card-glass p-4 h-100 d-flex flex-column justify-content-between">
+                        <div>
+                            <div class="d-flex justify-content-between align-items-center mb-3">
+                                <div class="text-warning">
+                                    <i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i>
+                                </div>
+                                <span class="badge bg-dark text-info border border-info extra-small">
+                                    <i class="bi {{ t.icon }} me-1"></i> {{ t.service }}
+                                </span>
+                            </div>
+                            <p class="fst-italic text-light mb-4">"{{ t.feedback }}"</p>
+                        </div>
+                        <div class="border-top border-secondary pt-3 mt-auto d-flex align-items-center justify-content-between">
+                            <div>
+                                <h6 class="fw-bold text-white mb-0">{{ t.name }}</h6>
+                                <small class="text-secondary">{{ t.company }}</small>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                {% endfor %}
+            </div>
+        </div>
+    </section>
+
+    <!-- Feedback Form Section (Formspree Integration) -->
+    <section id="feedback" class="py-5 bg-dark-subtle border-top border-bottom border-secondary">
+        <div class="container py-4">
+            <div class="text-center mb-5">
+                <h2 class="fw-bold text-gradient display-6">Submit Your Feedback</h2>
+                <p class="text-secondary">Have you used our Algorithmic Trading or Software Services? Share your experience with us.</p>
+            </div>
+            <div class="row justify-content-center">
+                <div class="col-lg-8">
+                    <div class="card card-glass p-4 p-md-5">
+                        <form action="https://formspree.io/f/YOUR_FORMSPREE_ID" method="POST">
+                            <div class="row g-3">
+                                <div class="col-md-6">
+                                    <label class="form-label text-light">Your Name</label>
+                                    <input type="text" name="name" class="form-control bg-dark text-white border-secondary" placeholder="Enter your name" required>
+                                </div>
+                                <div class="col-md-6">
+                                    <label class="form-label text-light">Email Address</label>
+                                    <input type="email" name="email" class="form-control bg-dark text-white border-secondary" placeholder="name@example.com" required>
+                                </div>
+                                <div class="col-md-12">
+                                    <label class="form-label text-light">Service Availed</label>
+                                    <select name="service" class="form-select bg-dark text-white border-secondary" required>
+                                        <option value="" selected disabled>Choose a Service</option>
+                                        <option value="Algorithmic Trading Systems">Algorithmic Trading Systems</option>
+                                        <option value="Web & Software Development">Web & Software Development</option>
+                                        <option value="AI & Automation Solutions">AI & Automation Solutions</option>
+                                        <option value="Educational Services">Educational Services</option>
+                                    </select>
+                                </div>
+                                <div class="col-md-12">
+                                    <label class="form-label text-light">Your Feedback / Review</label>
+                                    <textarea name="message" class="form-control bg-dark text-white border-secondary" rows="4" placeholder="Write your review here..." required></textarea>
+                                </div>
+                                <div class="col-12 text-center mt-4">
+                                    <button type="submit" class="btn btn-neon btn-lg px-5">Submit Feedback</button>
+                                </div>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer & Legal Section for Razorpay Approval -->
+    <footer id="contact" class="py-5">
+        <div class="container text-center">
+            <h5 class="text-white fw-bold mb-2">LOTS - Lee Online Technology Solutions</h5>
+            <p class="small text-secondary mb-1">Sole Proprietorship | Udyam Registered Entity</p>
+            <p class="small text-secondary mb-3">Shoranur, Palakkad, Kerala, India - 679121 | Email: support@leelots.com</p>
+            
+            <div class="mb-4">
+                <a href="#" class="text-secondary text-decoration-none mx-2 small">Privacy Policy</a> |
+                <a href="#" class="text-secondary text-decoration-none mx-2 small">Terms & Conditions</a> |
+                <a href="#" class="text-secondary text-decoration-none mx-2 small">Refund Policy</a> |
+                <a href="#" class="text-secondary text-decoration-none mx-2 small">Contact Us</a>
+            </div>
+            
+            <p class="text-secondary extra-small mb-0">&copy; 2026 LOTS - Lee Online Technology Solutions. All Rights Reserved.</p>
+        </div>
+    </footer>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>
