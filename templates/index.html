@@ -105,6 +105,19 @@
             background-color: #03050a;
             border-top: 1px solid var(--border-color);
         }
+
+        /* Modal Dark Theme Customization */
+        .modal-content {
+            background-color: #0d1117;
+            border: 1px solid var(--border-color);
+            color: #f1f5f9;
+        }
+        .modal-header {
+            border-bottom: 1px solid var(--border-color);
+        }
+        .modal-footer {
+            border-top: 1px solid var(--border-color);
+        }
     </style>
 </head>
 <body>
@@ -361,15 +374,83 @@
             <p class="small text-secondary mb-3">Shoranur, Palakkad, Kerala, India - 679121 | Email: support@leelots.com</p>
             
             <div class="mb-4">
-                <a href="#" class="text-secondary text-decoration-none mx-2 small">Privacy Policy</a> |
-                <a href="#" class="text-secondary text-decoration-none mx-2 small">Terms &amp; Conditions</a> |
-                <a href="#" class="text-secondary text-decoration-none mx-2 small">Refund Policy</a> |
-                <a href="#" class="text-secondary text-decoration-none mx-2 small">Contact Us</a>
+                <a href="#" class="text-secondary text-decoration-none mx-2 small" data-bs-toggle="modal" data-bs-target="#privacyModal">Privacy Policy</a> |
+                <a href="#" class="text-secondary text-decoration-none mx-2 small" data-bs-toggle="modal" data-bs-target="#termsModal">Terms &amp; Conditions</a> |
+                <a href="#" class="text-secondary text-decoration-none mx-2 small" data-bs-toggle="modal" data-bs-target="#refundModal">Refund Policy</a> |
+                <a href="#contact" class="text-secondary text-decoration-none mx-2 small">Contact Us</a>
             </div>
             
             <p class="text-secondary extra-small mb-0">© 2026 LOTS - Lee Online Technology Solutions. All Rights Reserved.</p>
         </div>
     </footer>
+
+    <!-- Privacy Policy Modal -->
+    <div class="modal fade" id="privacyModal" tabindex="-1" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-scrollable modal-lg">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title fw-bold text-gradient">Privacy Policy</h5>
+                    <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body text-secondary small">
+                    <p>At LOTS - Lee Online Technology Solutions, accessible from support@leelots.com, one of our main priorities is the privacy of our visitors. This Privacy Policy document contains types of information that is collected and recorded by LOTS and how we use it.</p>
+                    <h6 class="text-white fw-bold mt-3">Information We Collect</h6>
+                    <p>We collect personal information that you provide to us when submitting feedback or contacting us, including your Name, Email address, and message contents.</p>
+                    <h6 class="text-white fw-bold mt-3">How We Use Your Information</h6>
+                    <p>We use the collected information to respond to inquiries, improve our software/algorithmic solutions, and communicate update details regarding our services.</p>
+                    <h6 class="text-white fw-bold mt-3">Data Protection</h6>
+                    <p>We implement secure measures to maintain the safety of your personal details and will never sell or leak your information to third-party entities.</p>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary btn-sm" data-bs-dismiss="modal">Close</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Terms & Conditions Modal -->
+    <div class="modal fade" id="termsModal" tabindex="-1" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-scrollable modal-lg">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title fw-bold text-gradient">Terms &amp; Conditions</h5>
+                    <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body text-secondary small">
+                    <p>Welcome to LOTS - Lee Online Technology Solutions! By accessing this website or availing our services, you agree to comply with and be bound by the following terms and conditions.</p>
+                    <h6 class="text-white fw-bold mt-3">Services Provided</h6>
+                    <p>LOTS offers Web &amp; Software Architecture, AI Systems Integration, Algorithmic Automation, and Tech Mentorship. All custom software assets delivered remain protected by relevant Intellectual Property laws.</p>
+                    <h6 class="text-white fw-bold mt-3">Algorithmic Risk Disclaimer</h6>
+                    <p>Algorithmic Trading models and software solutions are provided as digital execution framework systems. Past performance of algorithms does not guarantee future financial market outcomes. Users acknowledge all financial risks associated with execution.</p>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary btn-sm" data-bs-dismiss="modal">Close</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Refund Policy Modal -->
+    <div class="modal fade" id="refundModal" tabindex="-1" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-scrollable modal-lg">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title fw-bold text-gradient">Refund &amp; Cancellation Policy</h5>
+                    <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body text-secondary small">
+                    <p>Thank you for choosing LOTS - Lee Online Technology Solutions.</p>
+                    <h6 class="text-white fw-bold mt-3">Digital Products &amp; Software Services</h6>
+                    <p>Due to the custom digital nature of custom code architectures, algorithmic deployments, and web software developments, payments made for completed technical services are non-refundable once source code access or delivery is executed.</p>
+                    <h6 class="text-white fw-bold mt-3">Cancellations</h6>
+                    <p>For ongoing development projects, cancellation requests must be submitted prior to the initiation of source code milestones. Approved refunds will be processed via original payment methods within 5-7 business days.</p>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary btn-sm" data-bs-dismiss="modal">Close</button>
+                </div>
+            </div>
+        </div>
+    </div>
 
     <!-- Bootstrap 5 JS Bundle CDN -->
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
